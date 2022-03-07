@@ -14,14 +14,15 @@ import sys
 import os
 from os import makedirs, path
 from errno import EEXIST
-os.chdir(r'C:\Users\lfsil\Documents\Chicago\Regression Analysis and Quant Trading\Assignments\Project\Scripts')
-path = r'C:\Users\lfsil\Documents\Chicago\Regression Analysis and Quant Trading\Assignments\Project\Scripts\Data'
+# os.chdir(r'C:\Users\Imtiaz\Desktop\Test_Run')
+# path = r'C:\Users\Imtiaz\Desktop\Test_Run\Data'
+# fileDir = os.path.dirname(os.path.realpath('__file__')) # Current file directory
 from Preprocessing import *
 from LassoRegularization import *
 from RandomForestForecast import *
 from Strategy import *
 import matplotlib.pyplot as plt
-%matplotlib inline
+# %matplotlib inline
 
 ## Creates a directory. equivalent to using mkdir -p on the command line
 def mkdir_p(mypath):
@@ -35,7 +36,7 @@ def mkdir_p(mypath):
             raise
 
 
-if __name__ == '__main__'(arg):
+if __name__ == '__main__':
     # =============================================================================
     # Step 1. Choosing the parameters of the model
     # =============================================================================
@@ -84,19 +85,21 @@ if __name__ == '__main__'(arg):
     # =============================================================================
     # Step 5. Store the variables you want
     # =============================================================================
+    
     ## Create new directory to automatically save MSD data
+    n = int(sys.argv[1])
     output_dir1 = "Strategy"
     mkdir_p(output_dir1)
 
     ## Make file names and store text file into designated directory
-    file_name1 = "cumret_{}.csv".format(arg[0])
-    file_name2 = "ret_portfolio_{}.txt".format(arg[0])
+    file_name1 = "cumret_{}.csv".format(n)
+    file_name2 = "ret_portfolio_{}.csv".format(n)
     file_path1 = os.path.join(output_dir1, file_name1) # Stores txt file to the designated directory
-    file_path2 = os.path.join(output_dir1, file_name2) # Stores txt file to the designated directory
+    file_path2 = os.path.join(output_dir1, file_name2) 
     
     ## Save data
-    np.savecsv(file_path1, cumret) # THIS MIGHT BE WRONG SO LOOK IT UP
-    np.savetxt(file_path2, ret_portfolio) # THIS MIGHT BE WRONG SO LOOK IT UP
+    np.savetxt(file_path1, cumret, delimiter = ',') 
+    np.savetxt(file_path2, ret_portfolio, delimiter = ',')
     
 
 

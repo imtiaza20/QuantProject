@@ -12,8 +12,9 @@ from sklearn.impute import IterativeImputer
 pd.set_option('use_inf_as_na', True)
 import sys
 import os
-os.chdir(r'C:\Users\lfsil\Documents\Chicago\Regression Analysis and Quant Trading\Assignments\Project\Scripts')
-path = r'C:\Users\lfsil\Documents\Chicago\Regression Analysis and Quant Trading\Assignments\Project\Scripts\Data'
+# os.chdir(r'C:\Users\Imtiaz\Desktop\Test_Run')
+# path = r'C:\Users\Imtiaz\Desktop\Test_Run\Data'
+# fileDir = os.path.dirname(os.path.realpath('__file__')) # Current file directory
 from Preprocessing import *
 from LassoRegularization import *
 from RandomForestForecast import *
