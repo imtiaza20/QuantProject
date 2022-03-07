@@ -1,0 +1,10 @@
+#!/bin/bash 
+
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-core=2
+#SBATCH --array=0-17 #Number of jobs you want to run
+#SBATCH --output=QuantProj"SLURM_ARRAY_TASK_ID".stdout
+#SBATCH --job-name=QuantProj
+#SBATCH --export=ALL
+
+python MainProject_Folder_No_Plots.py $SLURM_ARRAY_TASK_ID
